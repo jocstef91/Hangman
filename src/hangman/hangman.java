@@ -25,94 +25,52 @@ public class hangman {
 		}
 		
 		
-			int brojac=1;
-		
+			int brojac=0;
 			
-			while(brojac==1 && !endGame(niz,tabla)) {
+			
+				
+				while(brojac!=6 && !endGame(niz,tabla)) {
+					
 				System.out.println("Unesite slovo");
 				char slovo=s.next().charAt(0);
-				boolean pogodak = match(slovo,niz,tabla);
-				if(pogodak) {
+			
+				if(match(slovo,niz,tabla)) {
 					write(slovo,niz,tabla);
 					System.out.println(tabla);
 				}else {
-					printGlava();
-					System.out.println(tabla);
-					brojac++;
+					
+					if (brojac==0) {
+						printGlava();
+						System.out.println(tabla);
+						brojac++;
+					}else if (brojac==1) {
+						printTelo();
+						System.out.println(tabla);
+						brojac++;
+					}else if (brojac==2) {
+						printLevaRuka();
+						System.out.println(tabla);
+						brojac++;
+					}else if (brojac==3) {
+						printDesnaRuka();
+						System.out.println(tabla);
+						brojac++;
+					}else if (brojac==4) {
+						printLevaNoga();
+						System.out.println(tabla);
+						brojac++;
+					}else {
+						printDesnaNoga();
+						System.out.println(tabla);
+						brojac++;
+						
+					}
 				}
 				
 				System.out.println(endGame(niz,tabla));
-			}
+			}	
+				
 			
-			while(brojac==2 && !endGame(niz,tabla)){
-				System.out.println("Unesite slovo");
-				char slovo=s.next().charAt(0);
-				boolean pogodak = match(slovo,niz,tabla);
-				if(pogodak) {
-					write(slovo,niz,tabla);
-					System.out.println(tabla);
-				}else {
-					printTelo();
-					System.out.println(tabla);
-					brojac++;
-				}
-			}
-			
-			while(brojac==3 && !endGame(niz,tabla)){
-				System.out.println("Unesite slovo");
-				char slovo=s.next().charAt(0);
-				boolean pogodak = match(slovo,niz,tabla);
-				if(pogodak) {
-					write(slovo,niz,tabla);
-					System.out.println(tabla);
-				}else {
-					printLevaRuka();
-					System.out.println(tabla);
-					brojac++;
-				}
-			}
-			
-			while(brojac==4 && !endGame(niz,tabla)){
-				System.out.println("Unesite slovo");
-				char slovo=s.next().charAt(0);
-				boolean pogodak = match(slovo,niz,tabla);
-				if(pogodak) {
-					write(slovo,niz,tabla);
-					System.out.println(tabla);
-				}else {
-					printDesnaRuka();
-					System.out.println(tabla);
-					brojac++;
-				}
-			}
-			
-			while(brojac==5 && !endGame(niz,tabla)){
-				System.out.println("Unesite slovo");
-				char slovo=s.next().charAt(0);
-				boolean pogodak = match(slovo,niz,tabla);
-				if(pogodak) {
-					write(slovo,niz,tabla);
-					System.out.println(tabla);
-				}else {
-					printLevaNoga();
-					System.out.println(tabla);
-					brojac++;
-				}
-			}
-			
-			while(brojac==6 && !endGame(niz,tabla)){
-				System.out.println("Unesite slovo");
-				char slovo=s.next().charAt(0);
-				boolean pogodak = match(slovo,niz,tabla);
-				if(pogodak) {
-					write(slovo,niz,tabla);
-					System.out.println(tabla);
-				}else {
-					printDesnaNoga();
-					System.out.println(tabla);
-					brojac++;
-				}
-			}
 		
 		if(endGame(niz,tabla)) {
 			System.out.println("A L L I V E");
